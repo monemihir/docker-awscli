@@ -1,5 +1,5 @@
 FROM alpine:3.10
-MAINTAINER Xueshan Feng <sfeng@stanford.edu>
+MAINTAINER Mihir Mone <monemihir@hotmail.com>
 
 RUN apk --no-cache add \ 
       bash \
