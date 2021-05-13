@@ -1,7 +1,7 @@
 FROM alpine:3.10
-MAINTAINER Mihir Mone <monemihir@hotmail.com>
+LABEL maintainer="Mihir Mone <monemihir@hotmail.com>"
 
-RUN apk --no-cache add \ 
+RUN apk --no-cache add \
       bash \
       curl \
       less \

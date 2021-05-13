@@ -8,10 +8,10 @@ export AWS_DEFAULT_REGION=$(curl -s http://instance-data/latest/dynamic/instance
 
 # auth values
 get_sts_value() {
-  echo -n $(curl -s http://instance-data/latest/meta-data/iam/security-credentials/$roleProfile/ \
-      | grep "$1" \
-      | awk -F":" '{print $2}' \
-      | sed 's/^[ ^t]*//;s/"//g;s/,//g')
+    echo -n $(curl -s http://instance-data/latest/meta-data/iam/security-credentials/$roleProfile/ \
+        | grep "$1" \
+        | awk -F":" '{print $2}' \
+        | sed 's/^[ ^t]*//;s/"//g;s/,//g')
 }
 
 # exit 1 with an error message
@@ -80,7 +80,7 @@ case $info in
         result=$(curl -s http://instance-data/latest/meta-data/iam/security-credentials/$roleProfile)
         ;;
     STSTOKEN)
-	    result=$(get_sts_value "Token")
+        result=$(get_sts_value "Token")
         ;;
     STSKEY)
         result=$(get_sts_value "AccessKeyId")
@@ -89,12 +89,12 @@ case $info in
         result=$(get_sts_value "SecretAccessKey")
         ;;
     ZONE)
-	    result=$(curl -s http://instance-data/latest/meta-data/placement/availability-zone/ | sed -e 's/.$//')
+        result=$(curl -s http://instance-data/latest/meta-data/placement/availability-zone/ | sed -e 's/.$//')
         ;;
     *)
         echo "Usage: $(basename $0) <argument>"
         grep -Eo '([A-Z.]+\))' $0 | sed 's/)//'
-   	;;
+    ;;
 esac
 
 if [ ! -z "$result" ]; then
