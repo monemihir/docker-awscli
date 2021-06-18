@@ -1,0 +1,12 @@
+---
+version: "3"
+networks:
+  default:
+    external:
+      name: bridge
+
+services:
+  awscli:
+    image: monemihir/awscli
+    build:
+      context: .
