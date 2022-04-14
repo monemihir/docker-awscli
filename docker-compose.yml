@@ -7,6 +7,9 @@ networks:
 
 services:
   awscli:
-    image: monemihir/awscli
+    image: monemihir/awscli:1.22.95
     build:
       context: .
+      args:
+        AWSCLI_VERSION: "1.22.95"
+        S3CMD_VERSION: "2.2.0"
